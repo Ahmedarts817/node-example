@@ -25,16 +25,25 @@ router.get('/',(req, res) => {
       res.render('categoryDetails',{objCategory:result})
     }).catch((err)=>{console.log(err);})
   })
+
+  router.get('/edit/:id',(req,res)=>{
+    Category.findById(req.params.id)
+    .then((result)=>{
+      res.render('editCategory',{objCategory:result})
+    }).catch((err)=>{console.log(err);})
+  })
   
-  router.delete('/:id',(req,res)=>{
-    Category.findByIdAndDelete(req.params.id)
+  router.post('/edit/:id',(req,res)=>{
+  Category.findByIdAndUpdate(req.params.id,{
+      name:req.body.name,
+      description:req.body.description,
+      imgUrl:req.body.imgUrl,
+      products:{}
+    },{new:true})
     .then((params)=>{
-     res.json({link:'/categories'})
+     res.redirect('/categories')
     }).catch(err=>console.log(err))
   })
 
-  router.get('/edit',(req, res) => {
-      res.render("editCategory");
 
-  })
   module.exports = router;

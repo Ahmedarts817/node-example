@@ -13,7 +13,6 @@
     <%- include('./components/header') %> 
     <div class="container pt-3">
     <a class=" btn btn-dark my-2" href="/addCategory">Add category</a>
-    <a class=" btn btn-dark my-2" href="/categories/edit">Edit category</a>
         <div class="row">
             <% arrCategories.forEach((item)=>{ %> 
             <div class="col-md-6 col-lg-4">
@@ -22,7 +21,8 @@
                     <div class="card-body">
                       <h5 class="card-title"><%= item.name %> </h5>
                       <p class="card-text"><%= item.description %> </p>
-                      <a href="/categories/<%= item.id %> " class="btn btn-primary">Go somewhere</a>
+                      <a href="/categories/<%= item.id %> " class="btn btn-primary">Show details</a>
+                      <a href="categories/edit/<%= item.id %> " class="btn btn-primary">Edit</a>
                     </div>
                   </div>
             </div>

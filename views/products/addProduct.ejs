@@ -13,10 +13,10 @@
 <%- include('../components/header') %> 
 <div class="container">
     <h1 class="py-3 my-3 text-center bg-primary text-white">Add Product</h1>
-    <form action="/products" method="post">
+    <form action="/products/add" method="post">
         <div class="mb-3">
           <label for="name" class="form-label">Category name</label>
-          <select name="name" id="name">
+          <select name="category" id="name">
             <% arrCategories.forEach((item)=>{ %> 
 
             <option value="<%= item.id %>"><%= item.name %></option>

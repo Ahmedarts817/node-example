@@ -12,31 +12,21 @@
 <body>
 <%- include('./components/header') %> 
 <div class="container">
-    <h1 class="py-3 my-3 text-center bg-primary text-white">Edit category</h1>
-    <form action="/editCategory" method="post">
+    <h1 class="py-3 my-3 text-center bg-primary text-white">Add Category</h1>
+    <form action="/categories/edit/<%= objCategory.id %>" method="post">
         <div class="mb-3">
-          <label for="idd" class="form-label">Category name</label>
-          <select name="idd" id="idd">
-            <% arrCategories.forEach((item)=>{ %> 
-
-            <option value="<%= item.id %>"><%= item.name %></option>
-            <% }); %> 
-
-          </select>
-        </div>
-        <div class="mb-3">
-          <label for="name" class="form-label">Product name</label>
+          <label for="name" class="form-label">Category name</label>
           <input type="text" class="form-control" id="name" name="name">
         </div>
         <div class="mb-3">
-          <label for="description" class="form-label">Product description</label>
+          <label for="description" class="form-label">category description</label>
           <input type="text" class="form-control" id="description" name="description">
         </div>
         <div class="mb-3">
-          <label for="imgUrl" class="form-label">Product image url</label>
+          <label for="imgUrl" class="form-label">category image url</label>
           <input type="text" class="form-control" id="imgUrl" name="imgUrl">
         </div>
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
       </form>
 </div>
 </body>

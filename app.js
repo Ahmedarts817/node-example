@@ -67,21 +67,6 @@ app.get("/addArticle", (req, res) => {
 app.get("/addCategory", (req, res) => {
   res.render("addCategory")
 });
-app.get('/categories/edit',(req, res) => {
-  Category.find().then((result)=>{
-    res.render("editCategory",{arrCategories:result});
-  }).catch((err)=>{
-    console.log(err);
-  })
-})
-
-app.post('/editCategory',(req,res)=>{
-  Category.findByIdAndUpdate(req.body.idd)
-  .then((result)=>{
-    res.render('categories',{objCategory:result})
-  }).catch((err)=>{console.log(err);})
-})
-
 
 app.use('/categories',categoriesRouter)
 app.use('/products',productsRouter)
